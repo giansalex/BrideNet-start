@@ -1,6 +1,8 @@
 ﻿using System;
 using Bridge;
+using Bridge.Bootstrap3;
 using Bridge.Html5;
+using Bridge.jQuery2;
 
 namespace BridgeJs
 {
@@ -8,27 +10,18 @@ namespace BridgeJs
     {
         public static void Main()
         {
+            Document.Head.Title = "Bridge Starterd";
             // Create a new Button
             var button = new HTMLButtonElement
             {
-                InnerHTML = "Click Me",
-                OnClick = (ev) =>
-                {
-                    // When Button is clicked, 
-                    // the Bridge Console should open.
-                    Console.WriteLine("Success!");
-                }
+                Id = "btn1",
+                InnerHTML = "Clickme",
+                OnClick = r => Global.Alert("Hello!")
             };
-
-            // Add the Button to the page
+            //jQuery.Get("http://web");
+            //btn.Val("Clickeame");
+            //btn.Click(ev => Global.Alert("Success!"));
             Document.Body.AppendChild(button);
-
-            // To confirm Bridge.NET is working: 
-            // 1. Build this project (Ctrl + Shift + B)
-            // 2. Browse to file /Bridge/www/demo.html
-            // 3. Right-click on file and select "View in Browser" (Ctrl + Shift + W)
-            // 4. File should open in a browser, click the "Submit" button
-            // 5. Success!
         }
     }
 }
